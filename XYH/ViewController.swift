@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     var temp = 0
-
+    var sum = 0
+    var val = ""
+    
     @IBOutlet weak var caculaterDisplay: UITextField!
     
     @IBAction func Button1(_ sender: Any) {
@@ -55,23 +57,46 @@ class ViewController: UIViewController {
     
     @IBAction func ButtonADD(_ sender: Any) {
         temp = Int(caculaterDisplay.text!)!
+        val = "+"
         caculaterDisplay.text = ""
     }
     
     @IBAction func ButtonSUB(_ sender: Any) {
+        temp = Int(caculaterDisplay.text!)!
+        val = "-"
+        caculaterDisplay.text = ""
         
     }
     
     @IBAction func ButtonMUL(_ sender: Any) {
+        temp = Int(caculaterDisplay.text!)!
+        val = "*"
+        caculaterDisplay.text = ""
     }
     
     @IBAction func ButtonDIV(_ sender: Any) {
+        temp = Int(caculaterDisplay.text!)!
+        val = "/"
+        caculaterDisplay.text = ""
     }
     
     @IBAction func ButtonSUM(_ sender: Any) {
-        var sum = 0
-        sum = temp + Int(caculaterDisplay.text!)!
+        print(val)
+        switch val{
+            case"+":
+            sum = temp+Int(caculaterDisplay.text!)!;
+            case"-":
+            sum = temp-Int(caculaterDisplay.text!)!;
+            case"*":
+            sum = temp*Int(caculaterDisplay.text!)!;
+            case"/":
+            sum = temp/Int(caculaterDisplay.text!)!;
+            default:
+                break;
+            }
         caculaterDisplay.text = "\(sum)"
+        
+        
     }
     
     @IBAction func CLEAR(_ sender: Any) {
