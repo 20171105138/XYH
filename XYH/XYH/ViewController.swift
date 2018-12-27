@@ -8,6 +8,27 @@
 
 import UIKit
 
+public struct Stack<T>{
+    fileprivate var array: [T] = []
+    
+    mutating func push(_ element: T) {
+        array.append(element)
+    }
+    mutating func pop() ->T?{
+        return array.popLast()
+    }
+    func peek() -> T?{
+    return array.last
+    <#statements#>
+    }
+    var isEmpty: Bool{
+        return array.isEmpty
+    }
+    var count:Int{
+        return array.count
+    }
+}
+
 extension Double{
     public func roundTo(places: Int) -> Double{
         let divisor = pow(10.0, Double(places))
@@ -106,9 +127,9 @@ class ViewController: UIViewController {
             default:
                 break;
             }
-        caculaterDisplay.text = "\(sum.roundTo(places: 10))"
-        caculaterDisplay.text = "\(sum)"
         
+        caculaterDisplay.text = "\(sum)"
+        caculaterDisplay.text = "\(sum.roundTo(places: 10))"
         
     }
     
